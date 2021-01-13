@@ -41,5 +41,5 @@ if __name__ == '__main__':
     files = os.listdir('input')
     for file in files:
         if '.png' in file:
-            tag = file[:3]
-            make_flags(f'input/{file}', tag)
+            tag_ = file.split('.')[0]
+            make_flags(f'input/{file}', tag_)
