@@ -2,6 +2,8 @@ from PIL import Image
 import os
 import pyTGA
 
+from progress_bar import print_progress_bar
+
 
 def save_to_tga(im, path):
     pixels = list(im.getdata())
@@ -39,7 +41,11 @@ def make_flags(path_to_image, tag):
 
 if __name__ == '__main__':
     files = os.listdir('input')
+    count = 0
+    length = len(files)
     for file in files:
         if '.png' in file:
             tag_ = file.split('.')[0]
             make_flags(f'input/{file}', tag_)
+        count += 1
+        print_progress_bar(count, length)

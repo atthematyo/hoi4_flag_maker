@@ -6,3 +6,5 @@ reference
 venv
 .idea
 xcf
+*.pyc
+*.bat
