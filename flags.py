@@ -1,13 +1,22 @@
+# 8.0.1
 from PIL import Image
-import os
+
+# 1.1.0
 import pyTGA
 
-from progress_bar import print_progress_bar
+import os
 
 
-def save_to_tga(im, path):
-    pixels = list(im.getdata())
-    width, height = im.size
+def make_folder(path: str) -> None:
+    try:
+        os.mkdir(path)
+    except FileExistsError:
+        pass
+
+
+def save_to_tga(input_image: Image.Image, path: str) -> None:
+    pixels = list(input_image.getdata())
+    width, height = input_image.size
     pixels = [pixels[i * width:(i + 1) * width] for i in range(height)]
     pixels.reverse()
     image = pyTGA.Image(data=pixels)
@@ -15,31 +24,26 @@ def save_to_tga(im, path):
     image.save(path)
 
 
-def make_flags(path_to_image, tag):
+def make_flags(path_to_image: str, tag: str) -> None:
     img_base = Image.open(path_to_image).convert('RGBA')
-    try:
-        os.mkdir('output')
-    except FileExistsError:
-        pass
+
+    # Make 82 by 52 flag tga
+    make_folder('output')
     img_large = img_base.resize((82, 52))
     save_to_tga(img_large, f'output/{tag}')
 
-    try:
-        os.mkdir('output/medium')
-    except FileExistsError:
-        pass
+    # Make 41 by 26 flag tga
+    make_folder('output/medium')
     img_med = img_base.resize((41, 26))
     save_to_tga(img_med, f'output/medium/{tag}')
 
-    try:
-        os.mkdir('output/small')
-    except FileExistsError:
-        pass
+    # Make 10 by 7 flag tga
+    make_folder('output/small')
     img_small = img_base.resize((10, 7))
     save_to_tga(img_small, f'output/small/{tag}')
 
 
-if __name__ == '__main__':
+def main():
     files = os.listdir('input')
     count = 0
     length = len(files)
@@ -48,4 +52,9 @@ if __name__ == '__main__':
             tag_ = file.split('.')[0]
             make_flags(f'input/{file}', tag_)
         count += 1
-        print_progress_bar(count, length)
+        number = round((count * 100) / length)
+        print(f"\r{number}%", end="\r")
+
+
+if __name__ == '__main__':
+    main()
