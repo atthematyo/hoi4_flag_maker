@@ -8,3 +8,7 @@ venv
 xcf
 *.pyc
 *.bat
+build
+dist
+*.exe
+*.spec
