@@ -46,6 +46,7 @@ def make_flags(path_to_image: str, tag: str, output_dir: str = 'output') -> None
 
 
 def main():
+    make_folder('input')
     files = os.listdir('input')
     count = 0
     length = len(files)
