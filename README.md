@@ -51,6 +51,10 @@ In the GUI you pick any directory as input and any as output.
 There is also a binary exe of the GUI you can you use if you don't want to figure out Python or the dependencies.
 This is made with pyinstaller.
 
+Download the zip [here](https://github.com/atthematyo/hoi4_flag_maker/releases)
+
+Unzip where ever you want to install it then run the exe to run the GUI.
+
 ### Example
 You have a cool flag that you want to use in your mod. 
 [The Grand Union Flag](https://en.wikipedia.org/wiki/Grand_Union_Flag) would make a good neutral USA flag.
