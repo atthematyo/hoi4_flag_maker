@@ -45,14 +45,6 @@ def make_flags(path_to_image: str, tag: str, output_dir: str = 'output') -> None
     save_to_tga(img_small, f'{output_dir}/small/{tag}')
 
 
-def make_many_flags(input_dir: str, output_dir: str) -> None:
-    files = os.listdir(input_dir)
-    for file in files:
-        if '.png' in file:
-            tag_ = file.split('.')[0]
-            make_flags(f'{input_dir}/{file}', tag_, output_dir)
-
-
 def main():
     files = os.listdir('input')
     count = 0
