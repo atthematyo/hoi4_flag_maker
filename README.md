@@ -37,7 +37,7 @@ python gui.py
 ```
 
 #### flags.py
-The first time you run flags.py it will make an input directory for you. This is where you will put all your . files 
+The first time you run flags.py it will make an input directory for you. This is where you will put all the png files 
 you want to convert to tga files. Once you have png files to convert, the script will make an output directory where it 
 will store your png files. You can then drag the contents of output to your mod's gfx/flags directory.
 
