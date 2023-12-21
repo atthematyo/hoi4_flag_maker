@@ -26,22 +26,25 @@ def save_to_tga(input_image: Image.Image, path: str) -> None:
     image.save(path)
 
 
-def make_flags(path_to_image: str, tag: str, output_dir: str = 'output') -> None:
+def make_flags(path_to_image: str, tag: str, output_dir: str = 'output',
+               large_width: int = 82, large_height: int = 52,
+               medium_width: int = 41, medium_height: int = 26,
+               small_width: int = 10, small_height: int = 7) -> None:
     img_base = Image.open(path_to_image).convert('RGBA')
 
-    # Make 82 by 52 flag tga
+    # Make large flag tga
     make_folder(f'{output_dir}')
-    img_large = img_base.resize((82, 52))
+    img_large = img_base.resize((large_width, large_height))
     save_to_tga(img_large, f'{output_dir}/{tag}')
 
-    # Make 41 by 26 flag tga
+    # Make medium flag tga
     make_folder(f'{output_dir}/medium')
-    img_med = img_base.resize((41, 26))
+    img_med = img_base.resize((medium_width, medium_height))
     save_to_tga(img_med, f'{output_dir}/medium/{tag}')
 
-    # Make 10 by 7 flag tga
+    # Make small flag tga
     make_folder(f'{output_dir}/small')
-    img_small = img_base.resize((10, 7))
+    img_small = img_base.resize((small_width, small_height))
     save_to_tga(img_small, f'{output_dir}/small/{tag}')
 
 

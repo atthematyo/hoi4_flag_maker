@@ -21,8 +21,8 @@ Small size: 10x7 pixel
 ## Setup
 
 ### Prerequisites
-- [Python](https://www.python.org/) 3.8.6
-- [Pillow](https://github.com/python-pillow/Pillow) 8.0.1
+- [Python](https://www.python.org/) 3.11.1
+- [Pillow](https://github.com/python-pillow/Pillow) 10.1.0
 - [pyTGA](https://github.com/MircoT/pyTGA) 1.1.0
 
 ### Getting Started
